@@ -1,0 +1,527 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+<head>
+
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+
+    <script src="https://d3js.org/d3.v4.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+
+    
+    <title>CAP 4744/5745 - Interactive Data Visualization - Project 2</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Project 2: Zizhan Zhou</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="calvin.html">Calvin College 2004</a></li>
+            <li class="nav-item active"><a class="nav-link" href="iris.html">Iris Dataset</a></li>
+            <li class="nav-item"><a class="nav-link" href="titanic.html">Titanic Passenger List</a></li>
+            <li class="nav-item"><a class="nav-link" href="wb_st.html">World Bank Data, Science-and-Technology</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+
+<div class="page">
+
+    <h1>CAP 4744/5745 - Interactive Data Visualization</h1>
+    <h2>Project 2: Iris Dataset</h2>
+    <h2>Zizhan Zhou</h2>
+
+
+    <p>Reference</p>
+    <p>https://www.d3-graph-gallery.com/index.html</p>
+    <p>https://www.tutorialsteacher.com/d3js</p>
+    <p>https://observablehq.com/@d3/gallery</p>
+
+    <h3>Visualization 1: Bar Chart(Univariate)</h3>
+    <div><svg id="vis_1" name="vis_1" class="default_svg"></svg>
+      <p>
+        <label>Number of bins:</label>
+        <input type="number" min="1" max="100" step="5" value="10" id="nBin">
+    </p>
+    </div>
+    <div>
+        <p>The visualization shows the distrubition of frequency of different sepal width.</p>
+        <p>The visualization is in the form of a bar chart because it is great for distriution
+            of univariate data. The encoding channels used are position, color area and shape.
+            The position are used for creating axis and color and shape are used to create bars.
+            Purple color and padding are used to make data clear to present. Axis is labelled and scaled.
+        </p>
+        <p>The visualization allows zooming, when doing that just hover the mouse over to the bar.
+          At the bottom of the visual, there's a button that allows user to adjust the bin size, the 
+          visual will change its apperance based on the size of the bin.
+        </p>
+    </div>
+
+    <h3>Visualization 2: Scatter Plot(Bivariate)</h3>
+    <div><svg id="vis_2" name="vis_2" class="default_svg"></svg></div>
+    <div>
+        <p>The visualization is trying to show the relationship between sepal length and sepal width.</p>
+        <p>The visualization is a scatter plot since it is great for correlation problem. 
+            The encoding channels used are color, shape and position. Positional channel are used to
+            create the axis and the axis is also scaled. The dot are in the shape but different color and 
+            the color represent the class each data point belong to. A legend is also created for easier
+            interpretation. 
+        </p>
+        <p>The visualization allows zoom in and out, just make sure to hover the mouse on the dot. It uses 
+          linking and highlighting so that when you hover on the dot it first becomes gray, then when you hover
+          on it again, it'll show that dot and all other dot within the same class using a specified color. 
+          In the beginning, it also has the animation effects to show how dots are moving to form a scatter plot. (refresh the page to see this.)
+        </p>
+    </div>
+
+    <h3>Visualization 3: Scatter Plot Matrix(Multivariate)</h3>
+    <div><svg id="vis_3" name="vis_3" class="default_svg"></svg></div>
+    <div>
+        <p>The visualization shows the relationship between sepal length, sepal width,
+            petel length and petal width in combination. </p>
+        <p>The visualization is a scatter plot. The encoding channels used are position, shape, 
+            color. There are total of 4 attributes and every attribute has a bivariate relationship
+            with the other 3 attributes. The legend is created for the data to be more clear and distinctive.
+            Horizontal and vertical axis are created for each bivariate relationship. Differnent colors are used
+            to represent the class a data point belongs to.
+        </p>
+        <p>This visulization allows the user to drag and zoom the plot while hovering the mouse over the dot in the 
+          scatter plot. Linking and highlighting are used so that when you hover to a dot its corresponding class will
+          be shown in a designated color. This visual is linked to visual 2 too, so visual 2 and visual 3 change simultaneously
+          when hovering. (refresh the page to change to default state)
+        </p>
+    </div>
+
+    <h3>Visualization 4: Visualization Type</h3>
+    <div><svg id="vis_4" name="vis_4" class="default_svg"></svg></div>
+    <div>
+        <p>Brief description of what the visualization is trying to show about the data.</p>
+        <p>Brief description of the visualization, encoding, and embellishment rationale.</p>
+    </div>
+
+</div>
+
+
+<script>
+
+    /*** START CODE HERE ***/
+    var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = 800 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+    var svg = d3.select("#vis_1")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .call(d3.zoom().on("zoom", function () {
+       svg.attr("transform", d3.event.transform)
+    }))
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+// get the data
+d3.csv("iris.csv", function(data) {
+
+    // Add the title of the graph
+    svg.append("text")
+    .attr("transform", "translate(100,0)")
+    .attr("x", 30)
+    .attr("y", 30)
+    .attr("font-size", "18px")
+    .text("Distrubution of sepal width")
+
+  // X axis: scale and draw:
+  var x = d3.scaleLinear()
+      .domain([0, 5])   
+      .range([0, width]);
+  svg.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
+
+    // label the x axis
+    svg.append("text")
+    .attr("transform", "translate(100,0)")
+    .attr("x", 590)
+    .attr("y", 378)
+    .attr("font-size", "12px")
+    .text("Sepal width")
+
+  // Y axis
+  var y = d3.scaleLinear()
+      .range([height, 0]);
+  var yAxis = svg.append("g")
+
+  // label the y axis
+    svg.append("text")
+    .attr("transform", "translate(100,0)")
+    .attr("x", -110)
+    .attr("y", -10)
+    .attr("font-size", "12px")
+    .text("Count")
+
+
+  function update(nBin) {
+
+    var histogram = d3.histogram()
+        .value(function(d) { return d.sepal_width_in_cm; })   
+        .domain(x.domain())  
+        .thresholds(x.ticks(nBin)); 
+
+
+    var bins = histogram(data);
+
+
+    y.domain([0, d3.max(bins, function(d) { return d.length; })]);   
+    yAxis
+        .transition()
+        .duration(1000)
+        .call(d3.axisLeft(y));
+
+
+    var u = svg.selectAll("rect")
+        .data(bins)
+
+
+    u
+        .enter()
+        .append("rect") 
+        .merge(u) 
+        .transition() 
+        .duration(1000)
+          .attr("x", 1)
+          .attr("transform", function(d) { return "translate(" + x(d.x0) + "," + y(d.length) + ")"; })
+          .attr("width", function(d) { return x(d.x1) - x(d.x0) -1 ; })
+          .attr("height", function(d) { return height - y(d.length); })
+          .style("fill", "#e64ec7")
+
+    u
+        .exit()
+        .remove()
+
+    }
+
+
+  // Initialize with 20 bins
+  update(20)
+
+
+  d3.select("#nBin").on("input", function() {
+    update(+this.value);
+  });
+
+  svg
+    .append("line")
+      .attr("x1", x(24) )
+      .attr("x2", x(24) )
+      .attr("y1", y(0))
+      .attr("y2", y(50))
+      .attr("stroke", "grey")
+      .attr("stroke-dasharray", "4")
+     
+
+    });;
+
+
+
+
+var svg2 = d3.select("#vis_2")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .call(d3.zoom().on("zoom", function () {
+       svg2.attr("transform", d3.event.transform)
+    }))
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+//Read the data
+d3.csv("iris.csv", function(data) {
+
+  svg2.append("text")
+    .attr("transform", "translate(100,0)")
+    .attr("x", 30)
+    .attr("y", 30)
+    .attr("font-size", "18px")
+    .text("Correlation between sepal and petal length")
+
+  // Add X axis
+  var x = d3.scaleLinear()
+    .domain([0, 0])
+    .range([ 0, width ]);
+  svg2.append("g")
+    .attr("class", "myXaxis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x))
+    .attr("opacity", "0");
+  
+    // Label the x axis
+    svg2.append("text")
+       .attr("transform", "translate(100,0)")
+       .attr("x", 580)
+       .attr("y", 375)
+       .attr("font-size", "12px")
+       .text("Sepal Length")
+  // Add Y axis
+  var y = d3.scaleLinear()
+    .domain([0, 10])
+    .range([ height, 0]);
+  svg2.append("g")
+    .call(d3.axisLeft(y));
+    // label the y axis
+    svg2.append("text")
+      .attr("transform", "translate(100,0)")
+      .attr("x", -125)
+      .attr("y", -10)
+      .attr("font-size", "12px")
+      .text("Petah length")
+
+
+  var highlight = function(d){
+
+    selected_specie = d.class
+
+    d3.selectAll(".dot")
+      .transition()
+      .duration(200)
+      .style("fill", "lightgrey")
+      .attr("r", 3)
+
+    d3.selectAll("." + selected_specie)
+      .transition()
+      .duration(200)
+      .style("fill", color(selected_specie))
+      .attr("r", 3)
+  }
+
+
+  var doNotHighlight = function(){
+    d3.selectAll(".dot")
+      .transition()
+      .duration(200)
+      .style("fill", "lightgrey")
+      .attr("r", 2 )
+  }
+
+  var color = d3.scaleOrdinal()
+    .domain(["Iris-setosa", "Iris-versicolor", "Iris-virginica" ])
+    .range([ "#f21339", "#534deb", "#4eed63"])
+  // Add dots
+  var myCircle = svg2.append('g')
+    .selectAll("circle")
+    .data(data)
+    .enter()
+    .append("circle")
+      .attr("class", function (d) { return "dot " + d.class } )
+      .attr("cx", function (d) { return x(d.sepal_length_in_cm); } )
+      .attr("cy", function (d) { return y(d.petal_length_in_cm); } )
+      .attr("r", 2)
+      .style("fill", function (d) { return color(d.class) } )
+      .style("opacity", 0.5)
+    .on("mouseover", highlight)
+    .on("mouseleave", doNotHighlight )
+
+
+  // new X axis
+  x.domain([0, 10])
+  svg2.select(".myXaxis")
+    .transition()
+    .duration(2000)
+    .attr("opacity", "1")
+    .call(d3.axisBottom(x));
+
+    svg2.selectAll("circle")
+    .transition()
+    .delay(function(d,i){return(i*3)})
+    .duration(2000)
+    .attr("cx", function (d) { return x(d.sepal_length_in_cm); } )
+    .attr("cy", function (d) { return y(d.petal_length_in_cm); } )
+
+      // Create the legend and place them onto the graph
+    svg2.append("circle").attr("cx",620).attr("cy",20).attr("r", 6).style("fill", "#f21339")
+    svg2.append("circle").attr("cx",620).attr("cy",40).attr("r", 6).style("fill", "#534deb")
+    svg2.append("circle").attr("cx",620).attr("cy",60).attr("r", 6).style("fill", "#4eed63")
+    svg2.append("text").attr("x", 650).attr("y", 20).text("Iris-setosa").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg2.append("text").attr("x", 650).attr("y", 40).text("Iris-virginica").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg2.append("text").attr("x", 650).attr("y", 60).text("Iris-versicolor").style("font-size", "15px").attr("alignment-baseline","middle")
+  
+
+})
+
+
+
+
+var marginWhole = {top: 10, right: 30, bottom: 10, left: 30},
+    sizeWhole = 500 - marginWhole.left - marginWhole.right
+
+// Create the svg area
+var svg3 = d3.select("#vis_3")
+  .append("svg")
+    .attr("width", sizeWhole  + marginWhole.left + marginWhole.right)
+    .attr("height", sizeWhole  + marginWhole.top + marginWhole.bottom)
+    .call(d3.zoom().on("zoom", function () {
+       svg3.attr("transform", d3.event.transform)
+    }))
+  .append("g")
+    .attr("transform", "translate(" + marginWhole.left + "," + marginWhole.top + ")");
+
+
+d3.csv("iris.csv", function(data) {
+
+  svg3.append("text")
+       .attr("transform", "translate(100,0)")
+       .attr("x", 50)
+       .attr("y", 10)
+       .attr("font-size", "14px")
+       .text("Scatter Plot Matrix of Iris")
+
+  var allVar = ["sepal_length_in_cm", "sepal_width_in_cm", "petal_length_in_cm", "petal_width_in_cm"]
+  var numVar = allVar.length
+
+
+  mar = 20
+  size = sizeWhole / numVar
+
+
+  var position = d3.scalePoint()
+    .domain(allVar)
+    .range([0, sizeWhole-size])
+
+  var color = d3.scaleOrdinal()
+    .domain(["Iris-setosa", "Iris-versicolor", "Iris-virginica" ])
+    .range([ "#5eb8af", "#b36f8e", "#348a5f"])
+
+  var highlight = function(d){
+
+  selected_specie = d.class
+
+  d3.selectAll(".dot")
+    .transition()
+    .duration(200)
+    .style("fill", "lightgrey")
+    .attr("r", 2)
+
+  d3.selectAll("." + selected_specie)
+    .transition()
+    .duration(200)
+    .style("fill", color(selected_specie))
+    .attr("r", 2)
+  }
+
+
+  // Highlight the specie that is hovered
+  var doNotHighlight = function(){
+  d3.selectAll(".dot")
+    .transition()
+    .duration(200)
+    .style("fill", "lightgrey")
+    .attr("r", 1 )
+  }
+
+
+  for (i in allVar){
+    for (j in allVar){
+
+      var var1 = allVar[i]
+      var var2 = allVar[j]
+
+
+      if (var1 === var2) { continue; }
+
+
+      xextent = d3.extent(data, function(d) { return +d[var1] })
+      var x = d3.scaleLinear()
+        .domain(xextent).nice()
+        .range([ 0, size-2*mar ]);
+
+
+      yextent = d3.extent(data, function(d) { return +d[var2] })
+      var y = d3.scaleLinear()
+        .domain(yextent).nice()
+        .range([ size-2*mar, 0 ]);
+
+
+      var tmp = svg3
+        .append('g')
+        .attr("transform", "translate(" + (position(var1)+mar) + "," + (position(var2)+mar) + ")");
+
+
+      tmp.append("g")
+        .attr("transform", "translate(" + 0 + "," + (size-mar*2) + ")")
+        .call(d3.axisBottom(x).ticks(3));
+      tmp.append("g")
+        .call(d3.axisLeft(y).ticks(3));
+
+
+      tmp
+        .selectAll("myCircles")
+        .data(data)
+        .enter()
+        .append("circle")
+          .attr("class", function (d) { return "dot " + d.class } )
+          .attr("cx", function(d){ return x(+d[var1]) })
+          .attr("cy", function(d){ return y(+d[var2]) })
+          .attr("r", 1)
+          .attr("fill", function(d){ return color(d.class)})
+          .on("mouseover", highlight)
+          .on("mouseleave", doNotHighlight )
+    }
+  }
+
+
+
+  for (i in allVar){
+    for (j in allVar){
+
+      if (i != j) { continue; }
+
+      var var1 = allVar[i]
+      var var2 = allVar[j]
+      svg3
+        .append('g')
+        .attr("transform", "translate(" + position(var1) + "," + position(var2) + ")")
+        .append('text')
+          .attr("x", size/2)
+          .attr("y", size/2)
+          .text(var1)
+          .attr("text-anchor", "middle")
+
+    }
+  }
+
+  svg3.append("circle").attr("cx",340).attr("cy",400).attr("r", 6).style("fill", "#5eb8af")
+    svg3.append("circle").attr("cx",340).attr("cy",420).attr("r", 6).style("fill", "#b36f8e")
+    svg3.append("circle").attr("cx",340).attr("cy",440).attr("r", 6).style("fill", "#348a5f")
+    svg3.append("text").attr("x", 360).attr("y", 400).text("Iris-setosa").style("font-size", "10px").attr("alignment-baseline","middle")
+    svg3.append("text").attr("x", 360).attr("y", 420).text("Iris-virginica").style("font-size", "10px").attr("alignment-baseline","middle")
+    svg3.append("text").attr("x", 360).attr("y", 440).text("Iris-versicolor").style("font-size", "10px").attr("alignment-baseline","middle")
+})
+
+</script>
+
+</body>
+</html>

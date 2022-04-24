@@ -1,0 +1,460 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+<head>
+
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!--*************************************-->
+    <!--**** IMPORT EXTERNAL Style Sheet ****-->
+    <link rel="stylesheet" href="css/style.css">
+    <!--*************************************-->
+
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+
+    <script src="https://d3js.org/d3.v4.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+    <!-- Color Scale -->
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+
+    <title>CAP 4744/5745 - Interactive Data Visualization - Project 3</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Project 3: Your Name</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active"><a class="nav-link" href="calvin.html">Calvin College 2004</a></li>
+            <li class="nav-item"><a class="nav-link" href="iris.html">Iris Dataset</a></li>
+            <li class="nav-item"><a class="nav-link" href="titanic.html">Titanic Passenger List</a></li>
+            <li class="nav-item"><a class="nav-link" href="wb_st.html">World Bank Data, Science-and-Technology</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="page">
+
+    <h1>CAP 4744/5745 - Interactive Data Visualization</h1>
+    <h2>Project 3: Calvin College 2004 Dataset</h2>
+    <h2>Zizhan Zhou</h2>
+
+    <p>Reference</p>
+    <p>https://www.d3-graph-gallery.com/index.html</p>
+    <p>https://www.tutorialsteacher.com/d3js</p>
+    <p>https://observablehq.com/@d3/gallery</p>
+
+    <h3>Visualization 1: Bar chart (Univariate)</h3>
+    <div><svg id="vis_1" name="vis_1" class="default_svg"></svg>
+        <p>
+            <label>Number of bins:</label>
+            <input type="number" min="1" max="100" step="5" value="20" id="nBin">
+        </p>
+    </div>
+    <div>
+        <p>This bar chart shows the distribution of ACT scores amongst all students
+          in the dataset. The distribution of ACT scores can indicate the distrution
+          of academic performance of the class before enrollment, a score of 24 of higher is considered a good score</p>
+        <p>The visualization used is a bar chart since it is perfect for showing distribution
+          of univariate data. It uses bar shape the represent the count of each ACT score class
+          and bar is filled with either blue or mint color to make the data clear to see. The visualization
+          also included positional channel as axis for easier interpretation. Titles and axis labels
+          are also inclued.</p>
+        <p>The graph allows zooming, just move the moouth over to the bar to start zooming. On the bottom 
+           of the graph, there's a button that allows you to change the bin size which can allow people to
+           how the distrubution may vary and lead to different result based on the bin size selected. </p>
+    </div>
+
+    <h3>Visualization 2: Scatterplot (Bivariate)</h3>
+    <div><svg id="vis_2" name="vis_2" class="default_svg"></svg>
+      <p> <label>Scale of x axis:</label>
+        <input type="number" id="buttonXlim" value=350 step="50"></p>
+    </div>
+    <div>
+        <p>The visual is trying to show the relationship between SATM and SATV scores</p>
+        <p>Positional and color channels are used in this case. The x axis is SATM score and y axis is SATV score, the plot 
+          shows whether these two attributes have any kind of correlation. Red color is used for the dot.
+        </p>
+        <p> For this visual, linking is used, when user changes the value of button at the bottom of the graph, the scope 
+          of x axis changes, and the apperance of the plot will change accordingly, this allows user to explore the importance
+          of setting good dimensions to present the data. The graph also allows zooming when the mouse is hovered over the dot.</p>
+    </div>
+
+    <h3>Visualization 3: Line chart (Easy Multivariate)</h3>
+    <div><svg id="vis_3" name="vis_3" class="default_svg"></svg>
+    <select id="selectButton"></select>
+    </div>
+    <div>
+        <p>The line chart is trying to show the trend of SATM and SATV score of all the students before the enrollment, 
+          the x axis is the order of the student in the dataset and the y axis is the score range. 
+        </p>
+        <p>Brief description of the visualization, encoding, and embellishment rationale.
+          The visualization used is line chart because I'm tryig to show the overall academic performance of the class 
+          through analysis of their SATM and SATV scores to see which level each students falls under. Titles and axis labels
+          are included. Positional channels and color channels are used. The color changes when the user changes from SATM to SATV.
+        </p>
+        <p>This visualization allows zooming, just move the mouse over to the line and zoom in and out, can also drag the position 
+          of the plot. It uses linking to allow the user to select the attributes from the button and display the graph accordingly.
+        </p>
+    </div>
+
+    <h3>Visualization 4: Visualization Type</h3>
+    <div><svg id="vis_4" name="vis_4" class="default_svg"></svg></div>
+    <div>
+        <p>Brief description of what the visualization is trying to show about the data.</p>
+        <p>Brief description of the visualization, encoding, and embellishment rationale.</p>
+        <p>Brief description of the interactions provided in the plot.</p>
+    </div>
+
+</div>
+
+
+<script>
+
+    /*** START CODE HERE ***/
+
+
+    // Margin Values
+    var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = 800 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+     // First visual
+    var svg = d3.select("#vis_1")
+      .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .call(d3.zoom().on("zoom", function () {
+       svg.attr("transform", d3.event.transform)
+        }))
+      .append("g")
+        .attr("transform",
+              "translate(" + margin.left + "," + margin.top + ")");
+
+
+    d3.csv("../data/srsatact.csv", function(data) {
+
+    // Add the title of the graph
+    svg.append("text")
+    .attr("transform", "translate(100,0)")
+    .attr("x", 30)
+    .attr("y", 20)
+    .attr("font-size", "15px")
+    .text("Distrubution of ACT scores")
+
+    svg.append("circle").attr("cx",650).attr("cy",120).attr("r", 5).style("fill", "#0a7aa6")
+    svg.append("text").attr("x", 660).attr("y", 120).text("ACT >= 24").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("circle").attr("cx",650).attr("cy",140).attr("r", 5).style("fill", "#20a192")
+    svg.append("text").attr("x", 660).attr("y", 140).text("ACT < 24").style("font-size", "15px").attr("alignment-baseline","middle") 
+
+
+    var x = d3.scaleLinear()
+        .domain([0, 50]) 
+        .range([0, width]);
+    svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x));
+
+
+    svg.append("text")
+    .attr("transform", "translate(100,0)")
+    .attr("x", 590)
+    .attr("y", 378)
+    .attr("font-size", "12px")
+    .text("ACT Score")
+
+    var y = d3.scaleLinear()
+        .range([height, 0]);
+    var yAxis = svg.append("g")
+
+    svg.append("text")
+    .attr("transform", "translate(100,0)")
+    .attr("x", -110)
+    .attr("y", -10)
+    .attr("font-size", "12px")
+    .text("Count")
+
+
+    function update(numBin) {
+
+      var histogram = d3.histogram()
+          .value(function(d) { return d.ACT; })  
+          .domain(x.domain())  
+          .thresholds(x.ticks(numBin)); 
+
+      var bins = histogram(data);
+
+      y.domain([0, d3.max(bins, function(d) { return d.length; })]);  
+      yAxis
+          .transition()
+          .duration(1000)
+          .call(d3.axisLeft(y));
+
+      var u = svg.selectAll("rect")
+          .data(bins)
+
+      u
+          .enter()
+          .append("rect") 
+          .merge(u) 
+          .transition() 
+          .duration(1000)
+            .attr("x", 1)
+            .attr("transform", function(d) { return "translate(" + x(d.x0) + "," + y(d.length) + ")"; })
+            .attr("width", function(d) { return x(d.x1) - x(d.x0) -1 ; })
+            .attr("height", function(d) { return height - y(d.length); })
+            .style("fill", function(d){ if(d.x0>23){return "#0a7aa6"} else {return "#20a192"}})
+
+      u
+          .exit()
+          .remove()
+
+      }
+
+
+    update(20)
+
+    d3.select("#numBin").on("input", function() {
+      update(+this.value);
+    });
+
+    svg
+      .append("line")
+        .attr("x1", x(24) )
+        .attr("x2", x(24) )
+        .attr("y1", y(0))
+        .attr("y2", y(50))
+        .attr("stroke", "grey")
+        .attr("stroke-dasharray", "4")
+      
+
+      });;
+
+
+
+// Second visual
+var svg2 = d3.select("#vis_2")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .call(d3.zoom().on("zoom", function () {
+       svg2.attr("transform", d3.event.transform)
+        }))
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+//Read the data
+d3.csv("../data/srsatact.csv", function(data) {
+
+
+  // Add the title of the graph
+  svg2.append("text")
+    .attr("transform", "translate(100,0)")
+    .attr("x", 30)
+    .attr("y", 20)
+    .attr("font-size", "15px")
+    .text("Relationship between SATM and SATV")
+  // Add X axis
+  var x = d3.scaleLinear()
+    .domain([0, 1000])
+    .range([ 0, width ]);
+  var xAxis = svg2.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x));
+
+  svg2.append("text")
+    .attr("transform", "translate(100,0)")
+    .attr("x", 630)
+    .attr("y", 380)
+    .attr("font-size", "12px")
+    .text("SATM")
+
+  // Add Y axis
+  var y = d3.scaleLinear()
+    .domain([0, 1000])
+    .range([ height, 0]);
+  svg2.append("g")
+    .call(d3.axisLeft(y));
+
+  
+  svg2.append("text")
+    .attr("transform", "translate(100,0)")
+    .attr("x", -120)
+    .attr("y", -10)
+    .attr("font-size", "12px")
+    .text("SATV")
+
+  // Add dots
+  svg2.append('g')
+    .selectAll("dot")
+    .data(data)
+    .enter()
+    .append("circle")
+      .attr("cx", function (d) { return x(d.SATM); } )
+      .attr("cy", function (d) { return y(d.SATV); } )
+      .attr("r", 3)
+      .style("fill", "#d44e72" )
+
+
+  // A function that update the plot for a given xlim value
+  function updatePlot() {
+
+    // Get the value of the button
+    xlim = this.value
+
+    // Update X axis
+    x.domain([3,xlim])
+    xAxis.transition().duration(1000).call(d3.axisBottom(x))
+
+    // Update chart
+    svg2.selectAll("circle")
+       .data(data)
+       .transition()
+       .duration(1000)
+       .attr("cx", function (d) { return x(d.SATM); } )
+       .attr("cy", function (d) { return y(d.SATV); } )
+  }
+
+  // Add an event listener to the button created in the html part
+  d3.select("#buttonXlim").on("input", updatePlot )
+
+})
+
+
+// append the svg object to the body of the page
+var svg3 = d3.select("#vis_3")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .call(d3.zoom().on("zoom", function () {
+       svg3.attr("transform", d3.event.transform)
+        }))
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+
+d3.csv("../data/srsatact.csv", function(data) {
+
+
+    var attrGroup = ["SATM", "SATV"]
+
+    // add the options to the button
+    d3.select("#selectButton")
+      .selectAll('myOptions')
+     	.data(attrGroup)
+      .enter()
+    	.append('option')
+      .text(function (d) { return d; })
+      .attr("value", function (d) { return d; })
+
+    var myColor = d3.scaleOrdinal()
+      .domain(attrGroup)
+      .range(d3.schemeSet2);
+
+    // Add the title of the graph
+    svg3.append("text")
+    .attr("transform", "translate(100,0)")
+    .attr("x", 50)
+    .attr("y", 0)
+    .attr("font-size", "15px")
+    .text("SATM and SATV Scores")
+
+    var x = d3.scaleLinear()
+      .domain([0,300])
+      .range([ 0, width ]);
+    svg3.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
+
+      // label the x axis
+      svg3.append("text")
+      .attr("transform", "translate(100,0)")
+      .attr("x", 630)
+      .attr("y", 380)
+      .attr("font-size", "12px")
+      .text("order")
+
+    // Add Y axis
+    var y = d3.scaleLinear()
+      .domain( [0,800])
+      .range([ height, 0 ]);
+    svg3.append("g")
+      .call(d3.axisLeft(y));
+
+    // label the y axis
+    svg3.append("text")
+      .attr("transform", "translate(100,0)")
+      .attr("x", -125)
+      .attr("y", -10)
+      .attr("font-size", "12px")
+      .text("Score")
+
+    var i = 1
+    var line = svg3
+      .append('g')
+      .append("path")
+        .datum(data)
+        .attr("d", d3.line()
+          .x(function(d) { return x(+(i++)) })
+          .y(function(d) { return y(+d.SATM) })
+        )
+        .attr("stroke", function(d){ return myColor("valueA") })
+        .style("stroke-width", 4)
+        .style("fill", "none")
+
+    // A function that update the chart
+    function update(selectedGroup) {
+
+      // Create new data with the selection?
+      var dataFilter = data.map(function(d){return {value:d[selectedGroup]} })
+      var j = 1
+      // Give these new data to update line
+      line
+          .datum(dataFilter)
+          .transition()
+          .duration(1000)
+          .attr("d", d3.line()
+            .x(function(d) { return x(+(j++)) })
+            .y(function(d) { return y(+d.value) })
+          )
+          .attr("stroke", function(d){ return myColor(selectedGroup) })
+    }
+
+    // When the button is changed, run the updateChart function
+    d3.select("#selectButton").on("change", function(d) {
+        // recover the option that has been chosen
+        var selectedChoice = d3.select(this).property("value")
+        update(selectedChoice)
+    })
+
+})
+
+
+            
+    
+
+
+</script>
+
+</body>
+</html>
